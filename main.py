@@ -10,24 +10,32 @@ print("Hi! Welcome to Higher-Lower. Select A or B to pick which famous personali
 # select a random individual in the list
 def random_person_picker():
   '''return a tuple  (1, 8) two distinct numbers in the set data'''
-  a = random.randint(0, len(data))
-  b = random.randint(0, len(data))
+  a = random.randint(0, len(data)-1) #the index starts at 0
+  b = random.randint(0, len(data)-1)
   while a == b:
     b = random.randint(0, len(data))
-
   return (a,b)
 
 def unpack(t):
-
+  '''returns a dict object with a person's details'''
   a = random_person_picker()[t]
+  print(data[a])
   name = data[a]['name']
   description = data[a]['description']
   country = data[a]['country']
   return {'name': name, 'description': description, 'country': country}
 
+def announce(kwargs):
+  ''' takes a dict with key value pairs. The keys are
+  name, description, country. Returns ... '''
+  return(f'compare ')
 
-for i in range(1):
-  print(f"Compare {unpack(0)['name']}, {unpack(0)['description']}, from {unpack(0)['country']} {vs} {unpack(1)['name']}, {unpack(1)['description']}, from {unpack(1)['country']}")
+
+print("Compare", end = '')
+print(f'{name}')
+
+#for i in range(1):
+ # print(f"Compare {unpack(0)['name']}, {unpack(0)['description']}, from {unpack(0)['country']} {vs} {unpack(1)['name']}, {unpack(1)['description']}, from {unpack(1)['country']}")
 
 b = random_person_picker()[1]
 name = data[b]['name']
@@ -39,7 +47,7 @@ country = data[b]['country']
 
 
 #needs to compare their follower count. Which is higher
-data[a]['follower_count'] > data[b]['follower_count']
+#data[a]['follower_count'] > data[b]['follower_count']
 # needs to accept the user's A or B
 guess = input("Who has more followers? Type 'A' or 'B'").lower()
 
